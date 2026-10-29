@@ -1,0 +1,27 @@
+version: 2
+updates:
+  # linuxserver/beets base. A beets minor bump also needs a matching
+  # beets-audible release; the Dockerfile check fails the build until then.
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: fix
+      include: scope
+
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: fix
+      include: scope
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci
+      include: scope
